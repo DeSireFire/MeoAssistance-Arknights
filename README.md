@@ -20,11 +20,13 @@
 
 A Game Assistant for Arknights
 
-一款明日方舟的游戏小助手，一键完成所有日常，全自动长草！！
+一款明日方舟游戏小助手，一键完成所有日常，全自动长草！！
 
 纯图像识别，非内存挂！全图形化界面，开罐即食！
 
-并提供 [Python 接口](https://github.com/MistEO/MeoAssistantArknights/wiki/Python%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3) 供自行 DIY~ 绝赞更新中！✿✿ヽ(°▽°)ノ✿  
+提供 [Python 接口](https://github.com/MistEO/MeoAssistantArknights/wiki/Python%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3)、[Golang 接口](https://github.com/MistEO/MeoAssistantArknights/wiki/Golang-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3) 供自行 DIY~  
+
+绝赞更新中！✿✿ヽ(°▽°)ノ✿  
 
 </div>
 
@@ -32,7 +34,7 @@ A Game Assistant for Arknights
 
 - 刷理智，可选关
 - 基建换班，智能计算效率
-- 自动公招
+- 自动公招，支持使用`加急许可`
 - 访问好友
 - 收取信用及购物
 - 收取日常奖励
@@ -89,7 +91,7 @@ A Game Assistant for Arknights
 
 - 基建换班目前均为单设施最优解，但非跨设施的全局最优解。例如：`巫恋+龙舌兰`、`红云+稀音`等这类单设施内的组合，都是可以正常识别并使用的；`迷迭香`、`红松骑士团`这类多个设施间联动的体系，暂不支持使用。
 - 会客室仅缺一个线索时，会选择对应流派的干员；否则会选择通用干员。
-- 会客室暂不支持送出线索，当线索满时可能会处理异常。建议自动换班完成后自己再去看下会客室的情况。
+- 会客室仅当自有线索满时，才会送出线索，并且只送三个。有需要的同学可自行修改`resource\tasks.json`中`SelectClue`.`maxTimes`字段，自定义送出个数。
 - 控制中枢策略太过复杂，目前只考虑`阿米娅`、`诗怀雅`、`凯尔希`、`彩虹小队`及其他心情 +0.05 的干员，后续逐步优化。
 
 ### 信用商店随缘买
@@ -98,8 +100,8 @@ A Game Assistant for Arknights
 
 ### 公开招募识别
 
-- 公招识别和自动公招是两个独立的功能！
-- 公招识别需要手动打开有公招 Tag 选择的界面再使用
+- 自动公招和公招识别是两个独立的功能！
+- 自动公招支持使用`加急许可`，全自动连续公招！请进入设置中选择~
 - 出 5、6 星都会有弹窗提示
 
 ### 其他乱七八糟的说明
@@ -186,7 +188,8 @@ A Game Assistant for Arknights
 
 ### 自行编写脚本
 
-请参考 [Python 接口文档](https://github.com/MistEO/MeoAssistantArknights/wiki/Python%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3)
+- [Python 接口文档](https://github.com/MistEO/MeoAssistantArknights/wiki/Python%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3)
+- [Golang 接口](https://github.com/MistEO/MeoAssistantArknights/wiki/Golang-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3)
 
 ## 广告
 
@@ -194,5 +197,3 @@ A Game Assistant for Arknights
 [QQ群：内卷地狱](https://jq.qq.com/?_wv=1027&k=ypbzXcA2)：欢迎加入~  
 
 如果觉得软件对你有帮助，帮忙点个 Star 吧！~（网页最上方右上角的小星星），这就是对我最大的支持了！
-
-PS：作者前端苦手，现在的界面（WPF）基本是现学现卖的，写得很烂，希望有大佬能帮忙提点 PR 修改修改，感激不尽_(:з」∠)_
