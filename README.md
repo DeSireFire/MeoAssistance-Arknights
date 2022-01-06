@@ -32,18 +32,19 @@ A Game Assistant for Arknights
 
 ## 功能介绍
 
-- 刷理智，可选关
+- 刷理智
 - 基建换班，智能计算效率
-- 自动公招，支持使用`加急许可`
+- 自动公招
 - 访问好友
 - 收取信用及购物
 - 收取日常奖励
 - 全日常流程一键完成！
 
-话不多说，看图！
+话不多说，看图！  
 
-![image](https://user-images.githubusercontent.com/18511905/147876643-c1fb24cc-fe31-4938-816d-6c6e1488bbef.png)
-![image](https://user-images.githubusercontent.com/18511905/147876661-da0da603-3b8c-4da3-9b52-797e536b16d7.png)
+![image](https://user-images.githubusercontent.com/18511905/148376809-a80537b7-5e97-4978-959e-afada28c03c3.png)  
+![image](https://user-images.githubusercontent.com/18511905/148376301-c3296ff4-8df9-4573-858c-5dd2d03569b2.png)
+
 
 ## 下载地址
 
