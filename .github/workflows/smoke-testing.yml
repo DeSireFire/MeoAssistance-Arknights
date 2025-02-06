@@ -1,0 +1,121 @@
+name: smoke-testing
+
+on:
+  push:
+    paths:
+      - "3rdparty/include/**"
+      - "include/**"
+      - "src/Cpp/**"
+      - "src/MaaCore/**"
+      - "src/SyncRes/**"
+      - "MAA.sln"
+      - "resource/**"
+      - "!**/*.md"
+  pull_request:
+    paths:
+      - "3rdparty/include/**"
+      - "include/**"
+      - "src/Cpp/**"
+      - "src/MaaCore/**"
+      - "src/SyncRes/**"
+      - "MAA.sln"
+      - "resource/**"
+      - "!**/*.md"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  smoke-testing:
+    # Prevent duplicate runs on organization branches with PRs
+    if: github.event_name != 'pull_request' ||
+      github.event.pull_request.head.repo.full_name !=
+      github.event.pull_request.base.repo.full_name
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+
+      - name: Generate cache key
+        id: cache_key
+        run: |
+          Write-Output "key=Smoke-testing-${{ hashFiles('src/Cpp/**', 'src/MaaCore/**', 'src/SyncRes/**', '3rdparty/include/**', 'include/**', 'MAA.sln') }}" >> $env:GITHUB_OUTPUT
+
+      - name: Restore cache smoke-testing
+        id: cache-exe
+        uses: actions/cache/restore@v4
+        with:
+          key: ${{ steps.cache_key.outputs.key }}
+          path: |
+            ./x64/Debug/Sample.exe
+            ./x64/Debug/fastdeploy_ppocr.dll
+            ./x64/Debug/MaaCore.dll
+            ./x64/Debug/onnxruntime_maa.dll
+            ./x64/Debug/opencv_world4d_maa.dll
+
+      - name: Fetch submodules
+        if: steps.cache-exe.outputs.cache-hit != 'true'
+        run: |
+          git submodule update --init --depth 1 3rdparty/EmulatorExtras
+
+      - name: Cache MaaDeps
+        if: steps.cache-exe.outputs.cache-hit != 'true'
+        id: cache-maadeps
+        uses: actions/cache@v4
+        with:
+          path: |
+            ./MaaDeps
+          key: ${{ runner.os }}-x64-maadeps-${{ hashFiles('./maadeps-download.py') }}
+
+      - name: Bootstrap MaaDeps
+        if: steps.cache-exe.outputs.cache-hit != 'true' && steps.cache-maadeps.outputs.cache-hit != 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 maadeps-download.py x64-windows
+
+      - name: Add msbuild to PATH
+        if: steps.cache-exe.outputs.cache-hit != 'true'
+        uses: microsoft/setup-msbuild@v2
+        with:
+          msbuild-architecture: x64
+
+      - name: Build MaaSample
+        if: steps.cache-exe.outputs.cache-hit != 'true'
+        run: |
+          MSBUILD src/Cpp/MaaSample.slnf -t:restore,build -p:Configuration="Debug" -p:Platform="x64" -m
+
+      - name: Copy resource to build directory
+        if: steps.cache-exe.outputs.cache-hit == 'true'
+        run: |
+          (robocopy "resource" "x64/Debug/resource" /E /XD "Arknights-Tile-Pos" /MT:4 > $null);
+          if ($LASTEXITCODE -lt 2) { $global:LASTEXITCODE = $null }
+          (robocopy "resource/Arknights-Tile-Pos" "x64/Debug/resource/Arknights-Tile-Pos" "overview.json" > $null);
+          if ($LASTEXITCODE -lt 2) { $global:LASTEXITCODE= $null }
+
+      - name: Run tests
+        run: |
+          pwsh tools/SmokeTesting/run_tests.ps1
+
+      - name: Save cache smoke-testing (only in dev)
+        if: steps.cache-exe.outputs.cache-hit != 'true' && github.ref == 'refs/heads/dev'
+        uses: actions/cache/save@v4
+        with:
+          key: ${{ steps.cache_key.outputs.key }}
+          path: |
+            ./x64/Debug/Sample.exe
+            ./x64/Debug/fastdeploy_ppocr.dll
+            ./x64/Debug/MaaCore.dll
+            ./x64/Debug/onnxruntime_maa.dll
+            ./x64/Debug/opencv_world4d_maa.dll
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs
+          path: ./x64/Debug/debug

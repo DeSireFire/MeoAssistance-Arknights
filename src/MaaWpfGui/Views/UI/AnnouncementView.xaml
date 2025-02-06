@@ -1,0 +1,55 @@
+<hc:Window
+    x:Class="MaaWpfGui.Views.UI.AnnouncementView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:helper="clr-namespace:MaaWpfGui.Helper"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mdxam="clr-namespace:MdXaml;assembly=MdXaml"
+    xmlns:s="https://github.com/canton7/Stylet"
+    xmlns:styles="clr-namespace:MaaWpfGui.Styles"
+    xmlns:ui="clr-namespace:MaaWpfGui.ViewModels.UI"
+    Title="{DynamicResource Announcement}"
+    Width="600"
+    Height="500"
+    d:DataContext="{d:DesignInstance {x:Type ui:AnnouncementViewModel}}"
+    Icon="../../newlogo.ico"
+    ShowCloseButton="False"
+    mc:Ignorable="d">
+    <hc:ScrollViewer Background="{DynamicResource VersionUpdateViewBackgroundBrush}" IsInertiaEnabled="True">
+        <StackPanel>
+            <mdxam:MarkdownScrollViewer
+                Margin="10,0,10,0"
+                ClickAction="SafetyOpenBrowser"
+                Markdown="{Binding AnnouncementInfo}"
+                PreviewMouseWheel="{s:Action HandlePreviewMouseWheel,
+                                             Target={x:Type helper:MouseWheelHelper}}">
+                <mdxam:MarkdownScrollViewer.MarkdownStyle>
+                    <StaticResource ResourceKey="MdXamlStyle" />
+                </mdxam:MarkdownScrollViewer.MarkdownStyle>
+                <mdxam:MarkdownScrollViewer.Plugins>
+                    <StaticResource ResourceKey="MdXamlPlugin" />
+                </mdxam:MarkdownScrollViewer.Plugins>
+            </mdxam:MarkdownScrollViewer>
+
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Image Width="100" Source="/Res/Img/NoSkland.jpg" />
+                <StackPanel Margin="50,0,0,0" VerticalAlignment="Center">
+                    <CheckBox
+                        Height="30"
+                        Margin="6"
+                        HorizontalAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Content="{DynamicResource ShowDisclaimerNoMore}"
+                        IsChecked="{Binding DoNotRemindThisAnnouncementAgain}" />
+                    <Button
+                        Height="50"
+                        MinWidth="100"
+                        Command="{s:Action Close}"
+                        Content="{DynamicResource Confirm}" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </hc:ScrollViewer>
+</hc:Window>
