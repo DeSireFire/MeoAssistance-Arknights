@@ -1,272 +1,224 @@
-# MeoAssistance
+<!-- markdownlint-disable -->
 
+<div align="center">
+
+<img alt="LOGO" src="./docs/.vuepress/public/images/maa-logo_512x512.png" width="256" height="256" />
+
+# MaaAssistantArknights
+
+<br>
 <div>
-    <img alt="C++" src="https://img.shields.io/badge/c++-17-%2300599C?logo=cplusplus">
-    <img alt="VS" src="https://img.shields.io/badge/VisualStudio-19-%235C2D91?logo=visualstudio">
+    <img alt="C++" src="https://img.shields.io/badge/C++-20-%2300599C?logo=cplusplus">
 </div>
 <div>
-    <img alt="platform" src="https://img.shields.io/badge/platform-Windows%2064bit-%230078D6?logo=windows">
+    <img alt="platform" src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-blueviolet">
 </div>
 <div>
-    <img alt="license" src="https://img.shields.io/github/license/MistEO/MeoAssistance-Arknights">
-    <img alt="commit" src="https://img.shields.io/github/commit-activity/m/MistEO/MeoAssistance-Arknights?color=%23ff69b4">
-    <img alt="stars" src="https://img.shields.io/github/stars/MistEO/MeoAssistance-Arknights?style=social">
+    <img alt="license" src="https://img.shields.io/github/license/MaaAssistantArknights/MaaAssistantArknights">
+    <img alt="commit" src="https://img.shields.io/github/commit-activity/m/MaaAssistantArknights/MaaAssistantArknights?color=%23ff69b4">
+</div>
+<div>
+    <img alt="stars" src="https://img.shields.io/github/stars/MaaAssistantArknights/MaaAssistantArknights?style=social">
+    <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/MaaAssistantArknights/MaaAssistantArknights/total?style=social">
 </div>
 <br>
 
-A game assistance for Arknights
+<!-- markdownlint-restore -->
 
-一款明日方舟的游戏辅助，供PC端安卓模拟器使用，也勉强兼容安卓手机，绝赞开发中……  
-<br>
+[简体中文](https://maa.plus/docs/zh-cn/) | [繁體中文](https://maa.plus/docs/zh-tw/) | [English](https://maa.plus/docs/en-us/) | [日本語](https://maa.plus/docs/ja-jp/) | [한국어](https://maa.plus/docs/ko-kr/)
 
-![界面截图](images/gui.png)
-![公招截图](images/openRecruit.png)
-![基建截图](images/infrast.png)
+MAA 的意思是 MAA Assistant Arknights
 
-## 下载地址
+一款明日方舟游戏小助手
 
-[稳定版](https://github.com/MistEO/MeoAssistance/releases/latest)  
-[测试版](https://github.com/MistEO/MeoAssistance/releases)
+基于图像识别技术，一键完成全部日常任务！
 
-## 功能介绍
+绝赞更新中  ✿✿ヽ(°▽°)ノ✿
 
-- **全自动基建换班（新功能！测试版本）**
-    - 自动识别干员技能并换班，后续版本将支持所有的设施！
-    - 自动识别干员心情并入驻宿舍
-    - 可设置自动使用无人机给制造站/贸易站加速
-    - 单设施内最优解，会计算单设施内所有特殊干员组合
-    - 可识别赤金、经验书，分别使用不同的干员组合
-    - `迷迭香`等跨设施体系正在开发中！
-    - 详细换班功能介绍见[基建换班说明](#基建换班)
-- 自动刷理智
-    - 支持刷完自动上传[企鹅物流数据统计](https://penguin-stats.cn/)
-    - 界面支持统计掉落数量
-    - 可设置是否吃完理智药及数量
-    - 可设置是否吃石头及数量
-    - 可设置刷的次数（用来刷剿灭啥的）
-    - 可设置刷完自动关机
-    - 支持剿灭模式
-    - 支持打完升级了的情况
-    - 支持代理失败的情况，会自动放弃本次行动
-    - 支持刷完自动截图
-    - 支持掉线后重连，继续刷上次的图
-    - 支持凌晨4点更新后重连，继续刷上次的图
-- 公开招募识别
-    - 自动识别当前招募页所有Tags
-    - 自动计算可能出的干员组合并显示
-    - 自动帮你点击最优解Tags
-    - 自动帮你点击时间9小时
-    - 出5、6星干员弹窗提示
-    - 最新版本已支持夏活新增的`煌`、`灰喉`等干员
-    - 不会帮你点击确定按钮！！！请自行检查辅助选择的是否正确，若出现识别错误，遗漏了高星干员，作者概不负责哦__(:з」∠)_
-- 自动访问好友
-    - 访问完了还会贴心的帮你点进信用商店~
-    - 可设置访问完自动买信用商店的材料
-- 其他优势
-    - 所有点击操作，都是点击按钮内随机位置，并模拟泊松分布（按钮偏中间位置点的概率大，越往旁边点到的概率越小）
-    - 刷理智及访问好友的点击操作，支持设置随机延时，没有封号风险~
-    - 底层算法纯C++开发，并设计了多重的缓存技术，最大限度降低CPU和内存占用
-    - 模拟器窗口可以被遮挡、可以最小化、甚至可以老板键隐藏！即使全屏看视频、玩游戏，也完全不影响辅助运行
-    - 软件支持自动更新✿✿ヽ(°▽°)ノ✿
-- 支持多款主流模拟器
-- 勉强兼容安卓手机（USB调试、无线调试）
-- 自适应分辨率及屏幕缩放
-- 未来更多功能见[Todo](#Todo)
+</div>
 
-### 模拟器支持
+## 下载与安装
 
-#### 蓝叠模拟器
+请阅读[文档](https://maa.plus/docs/zh-cn/manual/newbie.html)后前往 [官网](https://maa.plus) 或 [Releases](https://github.com/MaaAssistantArknights/MaaAssistantArknights/releases) 下载，并参考[新手上路](https://maa.plus/docs/zh-cn/manual/newbie.html)进行安装。
 
-完美支持。需要在模拟器`设置`-`引擎设置`中打开`允许ADB连接`
+## 亮点功能
 
-#### 蓝叠模拟器国际版
+- 刷理智，掉落识别及上传 [企鹅物流](https://penguin-stats.cn/)，[一图流](https://ark.yituliu.cn/)
+- 智能基建换班，自动计算干员效率，单设施内最优解；同时也支持 [自定义排班](https://maa.plus/docs/zh-cn/protocol/base-scheduling-schema.html)
+- 自动公招，可选使用加急许可，一次全部刷完！公招数据自动上传 [企鹅物流](https://penguin-stats.cn/result/stage/recruit/recruit)，[一图流](https://ark.yituliu.cn/survey/maarecruitdata)
+- 支持手动识别公招界面，方便对高星公招做出选择 ~~（你的这个高姿回费出的是推王呢还是推王呢）~~
+- 支持识别干员列表，统计已有和未有干员及潜能，并在公招识别显示
+- 支持识别养成材料，并导出至 [企鹅物流刷图规划](https://penguin-stats.cn/planner)、[明日方舟工具箱](https://arkntools.app/#/material)、[ARK-NIGHTS 干员培养表](https://ark-nights.com/settings)
+- 访问好友、收取信用及购物、领取日常奖励等，一键全日常自动长草
+- 肉鸽全自动刷源石锭和等级，自动烧水和凹直升，智能识别干员及练度
+- 选择作业 JSON 文件，自动抄作业， [视频演示](https://www.bilibili.com/video/BV1H841177Fk/)
+- 支持 C, Python, Java, Rust, Golang, Java HTTP, Rust HTTP 等多种接口，方便集成调用，自定义你的 MAA！
 
-完美支持。需要在模拟器`设定`-`进阶`中打开`Android调试桥`
+<!-- markdownlint-disable -->
 
-#### 夜神模拟器
+<details><summary>话不多说，看图！</summary>
 
-完美支持
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./docs/.vuepress/public/images/zh-cn/readme/1-dark.png">
+  <img alt="zh1" src="./docs/.vuepress/public/images/zh-cn/readme/1-light.png">
+</picture>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./docs/.vuepress/public/images/zh-cn/readme/2-dark.png">
+  <img alt="zh2" src="./docs/.vuepress/public/images/zh-cn/readme/2-light.png">
+</picture>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./docs/.vuepress/public/images/zh-cn/readme/3-dark.png">
+  <img alt="zh3" src="./docs/.vuepress/public/images/zh-cn/readme/3-light.png">
+</picture>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./docs/.vuepress/public/images/zh-cn/readme/4-dark.png">
+  <img alt="zh4" src="./docs/.vuepress/public/images/zh-cn/readme/4-light.png">
+</picture>
 
-#### MuMu模拟器
+</details>
 
-完美支持
-
-#### 雷电模拟器
-
-支持
-
-#### 逍遥模拟器
-
-支持
-
-#### 腾讯手游助手
-
-不支持，新版本的腾讯好像也是自研引擎了，没开放ADB端口。但是测试是能响应Win32 Api的，有需求再做
-
-#### MuMu手游助手（星云引擎）  
-
-不支持，星云引擎这个版本不支持adb控制，甚至不响应Win32 Api鼠标消息，无解_(:з」∠)_
-
-#### 其他模拟器
-
-若有其他需要，欢迎给我提[ISSUE](https://github.com/MistEO/MeoAssistance/issues)，会根据情况尽量适配~
-
-#### 安卓手机/平板
-
-部分功能支持，正在开发中……  
-需要下载[谷歌官方ADB](https://dl.google.com/android/repository/platform-tools-latest-windows.zip)，将`platform-tools`文件夹解压到`MeoAsstGui.exe`的同级目录
+<!-- markdownlint-restore -->
 
 ## 使用说明
 
-### 基本说明
+### 功能介绍
 
-1. 根据上面模拟器支持情况，进行对应的`ADB`相关操作
-2. 解压压缩包，到**没有中文或特殊符号**的文件夹路径
-3. 第一次运行辅助，**请使用管理员权限**打开`MeoAsstGui.exe`。运行过一次后，后续不再需要管理员权限（之后的版本会尝试完全去掉管理员权限）
-4. 运行期间，模拟器窗口可以最小化，全屏玩游戏、看视频等，完全不影响
+请参阅 [用户手册](https://maa.plus/docs/zh-cn/manual/)。
 
-### 刷理智
+### 外服支持
 
-1. 明日方舟打开**蓝色开始行动按钮**的界面
-2. 根据你的需要勾选"吃理智药"和"吃石头"
-3. 点击"开始刷理智"，开始后上面的选项也可以随时修改
-4. 刷完了会自动停止的
+目前国际服（美服）、日服、韩服、繁中服的绝大部分功能均已支持。但由于外服用户较少及项目人手不足，很多功能并没有进行全面的测试，所以请自行体验。  
+若您遇到了 Bug，或对某个功能有强需求，欢迎在 [Issues](https://github.com/MaaAssistantArknights/MaaAssistantArknights/issues) 和 [讨论区](https://github.com/MaaAssistantArknights/MaaAssistantArknights/discussions) 催更；或加入我们一起建设 MAA！请参阅 [外服适配教程](https://maa.plus/docs/zh-cn/develop/overseas-client-adaptation.html)
 
-### 基建换班
+### CLI 支持
 
-1. 明日方舟处于主界面，或刚进入基建的界面（基建界面没有进行过缩放、干员排序调整等）
-2. 根据你的需要勾选左侧需要进行换班的设施（也可以拖动调整换班顺序）；设置换班模式、无人机、心情阈值等
-3. 点击开始换班，开始执行后上述设置不可修改
+MAA 支持命令行界面（CLI）操作，支持 Linux，macOS 和 Windows，可用于自动化脚本或在无图形界面的服务器上使用。请参阅 [CLI 使用指南](https://maa.plus/docs/zh-cn/manual/cli/)
 
-#### 换班策略
+## 加入我们
 
-自动计算并选择单设施内的最优解，支持所有通用类技能和特殊技能组合（但并非跨设施的最优解，如`迷迭香`这类跨设施间联动的体系，暂不支持）
+### 主要关联项目
 
-#### 温和换班模式
+**目前项目组非常缺前端大佬，若您有相关经验，欢迎加入我们！**
 
-会对干员人数不满的设施进行换班，计算单设施内最优解，尽量不破坏原有的干员组合；即若设施内干员是满的，则不对该设施进行换班
+- 全新框架：[MaaFramework](https://github.com/MaaXYZ/MaaFramework)
+- [作业站](https://prts.plus) 前端：[maa-copilot-frontend](https://github.com/MaaAssistantArknights/maa-copilot-frontend)
+- [作业站](https://prts.plus) 后端：[MaaBackendCenter](https://github.com/MaaAssistantArknights/MaaBackendCenter)
+- [官网](https://maa.plus)：[前端](website)
+- 深度学习：[MaaAI](https://github.com/MaaAssistantArknights/MaaAI)
 
-#### 激进换班模式
+### 多语言 (i18n)
 
-会对每一个设施进行换班，计算单设施内最优解，但不会将其他设施中的干员替换过来；即按工作状态排序，仅选择前面的干员
+MAA 支持多国语言，并使用 Weblate 进行本地化管理。如果您通晓多门语言，欢迎前往 [MAA Weblate](https://weblate.maa-org.net) 帮助我们进行翻译。
 
-#### 偏激换班模式
+MAA 以中文（简体）为第一语言，翻译词条均以中文（简体）为准。
 
-会对每一个设施进行换班，计算全局的单设施内最优解，为追求更高效率，会将其他设施内的干员也替换过来；即按技能排序，计算所有拥有该设施技能的干员效率，无论他在不在其他地方工作（放心，辅助不会傻到把某个干员在几个设施之间来回倒腾的_(:з」∠)_
+[![Weblate](https://weblate.maa-org.net/widget/maa/wpf-gui/multi-auto.svg)](https://weblate.maa-org.net/engage/maa/)
 
-#### 宿舍入驻心情阈值
+### 参与开发
 
-计算心情进度条的百分比；心情小于该阈值的干员，无论如何也不上班（不管上面的模式你选择了哪一种），直接进驻宿舍
+#### Windows
 
-### 公开招募识别
+请参阅 [开始开发](https://maa.plus/docs/zh-cn/develop/development.html)。
 
-1. 明日方舟打开公开招募，有Tag选择的界面
-2. 辅助勾选你需要的选项，点击"开始识别"
-3. 请检查识别结果是否正确，自行判断是否确定开始招募
+#### Linux | macOS
 
-再次强调，本辅助仅会帮你选择最优Tags和时间，不会帮你点击确定按钮！！！请自行检查辅助选择的是否正确，若出现识别错误，遗漏了高星干员，作者概不负责哦__(:з」∠)_
+请参阅 [Linux 编译教程](https://maa.plus/docs/zh-cn/develop/linux-tutorial.html)。
 
-### 访问好友
+#### API
 
-1. 明日方舟处于任意界面均可，会自动帮你点过去
-2. 根据需要勾选`信用商店随缘买`，点击"访问好友"
-3. 达到10次上限，或者所有可访问的好友都访问完了，就会自动停的
-4. 然后会贴心的帮你跳转到信用商店，顺便收了当天信用~
-5. 信用商店随缘买，就是从左到右依次买，但不会买`碳`和`家具零件`
+- [C 接口](include/AsstCaller.h)：[集成示例](src/Cpp/main.cpp)
+- [Python 接口](src/Python/asst/asst.py)：[集成示例](src/Python/sample.py)
+- [Golang 接口](src/Golang)：[集成示例](src/Golang/maa/maa.go)
+- [Dart 接口](src/Dart)
+- [Java 接口](src/Java/src/main/java/com/iguigui/maaj/easySample/MaaCore.java)：[集成示例](src/Java/src/main/java/com/iguigui/maaj/easySample/MaaJavaSample.java)
+- [Java HTTP 接口](src/Java/Readme.md)
+- [Rust 接口](src/Rust/src/maa_sys)：[HTTP 接口](src/Rust)
+- [TypeScript 接口](https://github.com/MaaAssistantArknights/MaaX/tree/main/packages/main/coreLoader)
+- [Woolang 接口](src/Woolang/maa.wo)：[集成示例](src/Woolang/demo.wo)
+- [集成文档](https://maa.plus/docs/zh-cn/protocol/integration.html)
+- [回调消息协议](https://maa.plus/docs/zh-cn/protocol/callback-schema.html)
+- [任务流程协议](https://maa.plus/docs/zh-cn/protocol/task-schema.html)
+- [自动抄作业协议](https://maa.plus/docs/zh-cn/protocol/copilot-schema.html)
 
-### 不使用模拟器，而是USB连接安卓手机
+#### 外服适配
 
-1. 下载[ADB程序](https://dl.google.com/android/repository/platform-tools-latest-windows.zip)，将`platform-tools`文件夹解压到`MeoAsstGui.exe`的同级目录
-2. 使用USB有线连接安卓手机和电脑
-3. 请在手机`设置`-`开发者选项`中打开`USB调试`、`USB调试（安全设置）`两个选项。具体操作方式不同品牌手机各不相同，请自行百度查询
-4. 请手动修改`resource\config.json`文件中，`options`.`connectType`为`1`。文件保存后请重新打开程序
-5. 当前仅兼容刷理智、公招计算功能，且公招计算暂时无法设置时间
+请参阅 [外服适配教程](https://maa.plus/docs/zh-cn/develop/overseas-client-adaptation.html)，对于国服已支持的功能，绝大部分的外服适配工作仅需要截图 + 简单的 JSON 修改即可。
 
-### 不使用模拟器，而是无线连接安卓手机
+#### 想参与开发，但不太会用 GitHub?
 
-1. 下载[ADB程序](https://dl.google.com/android/repository/platform-tools-latest-windows.zip)，将`platform-tools`文件夹解压到`MeoAsstGui.exe`的同级目录
-2. 请保证安卓手机和电脑处于同一局域网中
-3. 请在手机`设置`-`开发者选项`中打开`USB调试`、`USB调试（安全设置）`、`无线调试`三个选项。具体操作方式不同品牌手机各不相同，请自行百度查询
-4. 请手动修改`resource\config.json`文件中，`options`.`connectType`为`2`
-5. 请手动修改`resource\config.json`文件中，`options`.`connectRemoteAddress`为无线调试的IP地址和端口号。文件保存后请重新打开程序
-6. 当前仅兼容刷理智、公招计算功能，且公招计算暂时无法设置时间
+[GitHub Pull Request 流程简述](https://maa.plus/docs/zh-cn/develop/development.html#github-pull-request-流程简述)
 
-**警告：`无线调试`是非常危险的选项，若局域网中存在其他攻击性设备或程序，可能导致手机数据泄露或丢失，请勿在公共的WLAN中使用该功能！**
+#### Issue bot
 
-### 设置操作延时
-
-刷理智、访问好友时，每次点击之前，均随机延时一定的时间，降低封号风险  
-该功能默认是关闭的，需要的话请手动打开：请手动修改`resource\config.json`文件中，`options`.`controlDelayRange`字段的值，格式为`[最小延时, 最大延时]`，单位为毫秒，例如想设置3~5秒的随机延时，即设置为`[ 3000, 5000]` 即可。文件保存后请重新打开程序。
-
-![图例](images/controlDelayRange.png)
-
-## Todo
-
-- [ ] 彻底去掉管理员权限
-- [x] 支持设置吃理智药数量
-- [x] 信用商店`看着买`功能
-- [x] 支持所有主流模拟器
-- [ ] adb连接逻辑重构
-- [ ] 任务队列功能
-- [ ] 常用关卡选关
-- [ ] 自动收任务功能
-- [ ] 基建智能换班功能
-    - [x] 图形化界面
-    - [x] 干员技能识别
-    - [x] 干员识别准确率提高到100%
-    - [x] 宿舍心情识别及入驻
-    - [x] 制造站、贸易站智能换班
-    - [x] 发电站、办公室换班
-    - [x] 使用无人机
-    - [ ] 控制中枢智能换班
-    - [ ] 会客室智能换班
-    - [ ] 会客室智能线索交流
-    - [ ] 支持`迷迭香`等复杂基建体系
-    - [ ] `激进换班模式`
-    - [ ] 自定义换班（手动修改配置文件）
-- [ ] 使用GPU进行识别的版本
-- [x] 关卡掉落识别
-- [x] 企鹅物流上传
-- [x] 关卡掉落显示到界面上，并统计
-- [ ] 指定刷某种材料xx个
-- [ ] `config`中部分选项做成图形化界面
-- [x] 图形化界面部分控件状态保存
-- [x] 支持掉线重连，继续刷理智
-- [x] 支持凌晨4点更新后重连，继续刷理智
-- [x] 支持连安卓手机
-- [ ] 进一步的异形屏支持
-- [x] 后台自动更新
-- [x] 忽略当前版本更新
-- [ ] 提供log接口，以及界面log
-- [ ] 终极目标！全自动长草机！！！
+请参阅 [Issue Bot 使用方法](https://maa.plus/docs/zh-cn/develop/issue-bot-usage.html)
 
 ## 致谢
 
 ### 开源库
 
 - 图像识别库：[opencv](https://github.com/opencv/opencv.git)
-- 文字识别库：[chineseocr_lite](https://github.com/DayBreak-u/chineseocr_lite.git)
-- 关卡掉落识别：[企鹅物流识别](https://github.com/KumoSiunaus/penguin-stats-recognize-v3)
-- C++ JSON库：[meojson](https://github.com/MistEO/meojson.git)
-- WPF MVVW框架：[Stylet](https://github.com/canton7/Stylet)
-- WPF控件库：[HandyControl](https://github.com/HandyOrg/HandyControl)
-- C# JSON库: [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)
+- ~~文字识别库：[chineseocr_lite](https://github.com/DayBreak-u/chineseocr_lite.git)~~
+- 文字识别库：[PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
+- 深度学习部署库：[FastDeploy](https://github.com/PaddlePaddle/FastDeploy)
+- 机器学习加速器：[onnxruntime](https://github.com/microsoft/onnxruntime)
+- ~~关卡掉落识别：[企鹅物流识别](https://github.com/penguin-statistics/recognizer)~~
+- 地图格子识别：[Arknights-Tile-Pos](https://github.com/yuanyan3060/Arknights-Tile-Pos)
+- C++ JSON 库：[meojson](https://github.com/MistEO/meojson.git)
+- C++ 运算符解析器：[calculator](https://github.com/kimwalisch/calculator)
+- ~~C++ base64 编解码：[cpp-base64](https://github.com/ReneNyffenegger/cpp-base64)~~
+- C++ 解压压缩库：[zlib](https://github.com/madler/zlib)
+- C++ Gzip 封装：[gzip-hpp](https://github.com/mapbox/gzip-hpp)
+- 安卓触控事件器：[Minitouch](https://github.com/DeviceFarmer/minitouch)
+- 安卓触控事件器：[MaaTouch](https://github.com/MaaAssistantArknights/MaaTouch)
+- WPF MVVM 框架：[Stylet](https://github.com/canton7/Stylet)
+- WPF 控件库：[HandyControl](https://github.com/HandyOrg/HandyControl) -> [HandyControls](https://github.com/ghost1372/HandyControls)
+- C# 日志：[Serilog](https://github.com/serilog/serilog)
+- C# JSON 库：[Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json) & [System.Text.Json](https://github.com/dotnet/runtime)
+- ~~下载器：[aria2](https://github.com/aria2/aria2)~~
 
 ### 数据源
 
-- 公开招募数据：[明日方舟工具箱](https://www.bigfun.cn/tools/aktools/hr)
-- 干员及基建数据：[PRTS明日方舟中文WIKI](http://prts.wiki/)
+- ~~公开招募数据：[明日方舟工具箱](https://www.bigfun.cn/tools/aktools/hr)~~
+- ~~干员及基建数据：[PRTS Wiki](http://prts.wiki/)~~
 - 关卡数据：[企鹅物流数据统计](https://penguin-stats.cn/)
+- 游戏数据及资源：[明日方舟客户端素材](https://github.com/yuanyan3060/ArknightsGameResource)
+- 游戏数据：[《明日方舟》Yostar游戏数据](https://github.com/ArknightsAssets/ArknightsGamedata)
 
 ### 贡献/参与者
 
-- 非常感谢 [tcyh035](https://github.com/tcyh035) 帮忙设计重构图形界面
-- 非常感谢 [GengGode](https://github.com/GengGode) 和 [DbgDebug](https://github.com/DbgDebug) 提供图像算法思路并协助验证
-- 非常感谢 [LoveLoliii](https://github.com/LoveLoliii) 提供公开招募算法及数据、部分功能逻辑思路
-- 感谢参与软件测试、提bug的小伙伴们~
-- ~~感谢[B站直播间](https://live.bilibili.com/2808861)的小伙伴们陪我弹幕吹水~~
+感谢所有参与到开发/测试中的朋友们，是大家的帮助让 MAA 越来越好！ (\*´▽｀)ノノ
+
+[![Contributors](https://contributors-img.web.app/image?repo=MaaAssistantArknights/MaaAssistantArknights&max=105&columns=15)](https://github.com/MaaAssistantArknights/MaaAssistantArknights/graphs/contributors)
+
+## 声明
+
+- 本软件使用 [GNU Affero General Public License v3.0 only](https://spdx.org/licenses/AGPL-3.0-only.html) 开源。
+- 本软件 logo 并非使用 AGPL 3.0 协议开源，[耗毛](https://weibo.com/u/3251357314)、vie 两位画师及软件全体开发者保留所有权利。不得以 AGPL 3.0 协议已授权为由在未经授权的情况下使用本软件 logo，不得在未经授权的情况下将本软件 logo 用于任何用途。
+- 本软件开源、免费，仅供学习交流使用。若您遇到商家使用本软件进行代练并收费，可能由于设备或时间等原因，产生的任何问题及后果与本软件无关。
+
+### DirectML 支持说明
+
+本软件支持 GPU 加速功能，但 GPU 加速依赖于 Microsoft 提供的 DirectML（Microsoft.AI.DirectML）。为了方便用户，我们随安装包附带了一个未修改的 DirectML.dll 文件。
+
+#### 关于 DirectML.dll
+
+- 来源：Microsoft 官方
+- 许可证：请参考 Microsoft 的 DirectML 使用条款
+  [DirectML 官方文档](https://learn.microsoft.com/en-us/windows/ai/directml/)
+
+DirectML.dll 是 Microsoft 提供的独立组件，不属于本软件的开源部分，也不受 AGPL-3.0 的约束。
+
+如果您不需要 GPU 支持，可以安全地删除该 DLL 文件，软件核心功能仍然可以正常运行。
 
 ## 广告
 
-[B站直播间](https://live.bilibili.com/2808861)：每晚直播敲代码，近期很长一段时间应该都是在写本辅助软件  
-[QQ群](https://jq.qq.com/?_wv=1027&k=ypbzXcA2)：欢迎加入~
+用户交流 QQ 群：[MAA 使用 & 粥游交流 QQ 群](https://ota.maa.plus/MaaAssistantArknights/api/qqgroup/index.html)  
+Discord 服务器: [邀请链接](https://discord.gg/23DfZ9uA4V)  
+用户交流 TG 群：[Telegram 群](https://t.me/+Mgc2Zngr-hs3ZjU1)  
+自动战斗 JSON 作业分享：[prts.plus](https://prts.plus)  
+Bilibili 直播间：[MrEO 直播间](https://live.bilibili.com/2808861) 直播敲代码 & [MAA-Official 直播间](https://live.bilibili.com/27548877) 游戏/杂谈  
+
+技术群（舟无关、禁水）：[内卷地狱！(QQ 群)](https://jq.qq.com/?_wv=1027&k=ypbzXcA2)  
+开发者群：[QQ 群](https://jq.qq.com/?_wv=1027&k=JM9oCk3C)  
+
+如果觉得软件对你有帮助，帮忙点个 Star 吧！~（网页最上方右上角的小星星），这就是对我们最大的支持了！
